@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Working with standard validation</title>
+    </h:head>
+    <h:body>
+        <h:form id="UserForm">
+            <h:outputText value="Insert your age:"/><br />
+            <h:inputText id="userAgeID" required="true" value="#{userBean.userAge}">
+                <f:validateLongRange minimum="18" maximum="50"/>
+            </h:inputText>
+            <h:message showSummary="true" showDetail="false" for="userAgeID"
+                       style="color: red; text-decoration:overline"/>
+            <br />
+            <h:outputText value="Insert your first name:"/><br />
+            <h:inputText id="userNameID" required="true" value="#{userBean.firstName}">
+                <f:validateLength minimum="5" maximum="25" />
+            </h:inputText>
+            <h:message showSummary="true" showDetail="false" for="userNameID"
+                       style="color: red; text-decoration:overline"/>
+            <br />
+
+            <h:commandButton id="submit" action="response?faces-redirect=true" value="Submit"/>
+        </h:form>
+    </h:body>
+</html>

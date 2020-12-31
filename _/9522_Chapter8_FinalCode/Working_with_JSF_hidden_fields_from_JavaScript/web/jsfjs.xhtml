@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html">
+    <h:head>
+        <title>Working with JSF hidden fields from JavaScript</title>
+        <script type="text/javascript" language="javascript">
+            function submitForm(commandLinkId)
+            {
+                var fire = document.getElementById(commandLinkId);
+
+                if (document.createEvent)
+                {
+                    var eventObject = document.createEvent("MouseEvents");
+                    eventObject.initEvent( "click", true, false );
+                    fire.dispatchEvent(eventObject);
+                }
+                else if (document.createEventObject);
+                {
+                    fire.fireEvent("onclick");
+                }
+            }
+        </script>
+    </h:head>
+    <h:body>
+        <h:form id="myForm">
+            <h:selectBooleanCheckbox id="checkbox" value="#{participateBean.participate}" title="Click it to select or deselect" onclick="submitForm('myForm:hiddenCommandLink');"/>
+            <h:outputText value="Want to participate?"/>
+
+            <h:commandLink id="hiddenCommandLink" style="display:none;visibility:hidden;" action="response?faces-redirect=true"/>
+        </h:form>
+    </h:body>
+</html>

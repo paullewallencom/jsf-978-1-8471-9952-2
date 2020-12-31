@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resource-config>
+<!-- Include manual created resource -->
+
+  <resource>
+    <name>jsf/custom/component/renderkit/html/images/phone.gif</name>
+    <path>jsf/custom/component/renderkit/html/images/phone.gif</path>
+  </resource>
+
+
+
+	<resource>
+		<name>jsf/custom/component/renderkit/html/images/phone.gif</name>
+		<path>jsf/custom/component/renderkit/html/images/phone.gif</path>
+	</resource>
+</resource-config>

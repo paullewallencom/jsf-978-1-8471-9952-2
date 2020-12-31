@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html">
+    <h:head>
+        <title>Passing parameters from JSF to JS(server to client))</title>
+
+        <script type="text/javascript" language="javascript">
+           function variableFromServer(variable){
+               alert("Variable from server: " + variable)
+           }
+        </script>
+    </h:head>
+
+    <!-- <h:body onload="variableFromServer('JSF_1');"> -->
+    <h:body onload="variableFromServer('#{bean.text}');">
+            
+    </h:body>
+</html>

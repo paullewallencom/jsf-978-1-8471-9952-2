@@ -1,0 +1,15 @@
+<?xml version='1.0' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"      
+      xmlns:h="http://java.sun.com/jsf/html">
+    <h:head>
+        <title>Passing parameters with HTTP GET within the URL</title>
+    </h:head>
+
+    <h:body>
+        <h:form id="formId">
+            <h:commandButton id="btn1Id" value="Pass parameter 100 ..." onclick="window.open('pagetwo.xhtml?id=100', 'MyWindow', 'height=350,width=250,menubar=no,toolbar=no'); return false;" />
+            <h:commandButton id="btn2Id" value="Pass parameter 200 ..." onclick="window.open('pagethree.xhtml?id=200', 'MyWindow', 'height=350,width=250,menubar=no,toolbar=no'); return false;" />
+        </h:form>
+    </h:body>
+</html>

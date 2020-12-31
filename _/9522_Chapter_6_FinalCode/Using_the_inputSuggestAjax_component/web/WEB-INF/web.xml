@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.0" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+    <context-param>
+        <description>Only applicable if state saving method is &quot;server&quot; (= default).
+        Defines the amount (default = 20) of the latest views are stored in session.</description>
+        <param-name>org.apache.myfaces.NUMBER_OF_VIEWS_IN_SESSION</param-name>
+        <param-value>20</param-value>
+    </context-param>
+    <context-param>
+        <description>Only applicable if state saving method is &quot;server&quot; (= default).
+            If true (default) the state will be serialized to a byte stream before it
+            is written to the session.
+        If false the state will not be serialized to a byte stream.</description>
+        <param-name>org.apache.myfaces.SERIALIZE_STATE_IN_SESSION</param-name>
+        <param-value>true</param-value>
+    </context-param>
+    <context-param>
+        <description>Only applicable if state saving method is &quot;server&quot; (= default) and if
+            org.apache.myfaces.SERIALIZE_STATE_IN_SESSION is true (= default)
+            If true (default) the serialized state will be compressed before it
+        is written to the session. If false the state will not be compressed.</description>
+        <param-name>org.apache.myfaces.COMPRESS_STATE_IN_SESSION</param-name>
+        <param-value>true</param-value>
+    </context-param>
+    <context-param>
+        <description>This parameter tells MyFaces if javascript code should be allowed in the
+            rendered HTML output.
+            If javascript is allowed, command_link anchors will have javascript code
+            that submits the corresponding form.
+            If javascript is not allowed, the state saving info and nested parameters
+            will be added as url parameters.
+        Default: &quot;true&quot;</description>
+        <param-name>org.apache.myfaces.ALLOW_JAVASCRIPT</param-name>
+        <param-value>true</param-value>
+    </context-param>
+    <context-param>
+        <param-name>org.apache.myfaces.DETECT_JAVASCRIPT</param-name>
+        <param-value>false</param-value>
+    </context-param>
+    <context-param>
+        <description>If true, rendered HTML code will be formatted, so that it is &quot;human readable&quot;.
+            i.e. additional line separators and whitespace will be written, that do not
+            influence the HTML code.
+        Default: &quot;true&quot;</description>
+        <param-name>org.apache.myfaces.PRETTY_HTML</param-name>
+        <param-value>true</param-value>
+    </context-param>
+    <context-param>
+        <description>If true, a javascript function will be rendered that is able to restore the
+            former vertical scroll on every request. Convenient feature if you have pages
+            with long lists and you do not want the browser page to always jump to the top
+            if you trigger a link or button action that stays on the same page.
+        Default: &quot;false&quot;</description>
+        <param-name>org.apache.myfaces.AUTO_SCROLL</param-name>
+        <param-value>true</param-value>
+    </context-param>
+    <context-param>
+        <description>Validate managed beans, navigation rules and ensure that forms are not nested.</description>
+        <param-name>org.apache.myfaces.VALIDATE</param-name>
+        <param-value>true</param-value>
+    </context-param>
+    <context-param>
+        <description>A class implementing the
+            org.apache.myfaces.shared.renderkit.html.util.AddResource
+            interface. It is responsible to
+            place scripts and css on the right position in your HTML document.
+            Default: &quot;org.apache.myfaces.shared.renderkit.html.util.DefaultAddResource&quot;
+            Follow the description on the MyFaces-Wiki-Performance page to enable
+            StreamingAddResource instead of DefaultAddResource if you want to
+        gain performance.</description>
+        <param-name>org.apache.myfaces.ADD_RESOURCE_CLASS</param-name>
+        <param-value>org.apache.myfaces.renderkit.html.util.DefaultAddResource</param-value>
+    </context-param>
+    <context-param>
+        <description>A very common problem in configuring MyFaces-web-applications
+            is that the Extensions-Filter is not configured at all
+            or improperly configured. This parameter will check for a properly
+            configured Extensions-Filter if it is needed by the web-app.
+            In most cases this check will work just fine, there might be cases
+            where an internal forward will bypass the Extensions-Filter and the check
+            will not work. If this is the case, you can disable the check by setting
+        this parameter to false.</description>
+        <param-name>org.apache.myfaces.CHECK_EXTENSIONS_FILTER</param-name>
+        <param-value>true</param-value>
+    </context-param>
+    <context-param>
+        <description>Change the url-pattern from the ExtensionsFilter
+            Default is &quot;/faces/myFacesExtensionResource&quot;
+            Note: The filter-mapping for ExtensionsFilter, the url-pattern is
+        this value + &quot;/*&quot;, else there comes a exception</description>
+        <param-name>org.apache.myfaces.RESOURCE_VIRTUAL_PATH</param-name>
+        <param-value>/faces/extensionResource</param-value>
+    </context-param>
+    <context-param>
+        <description>This parameter enables partial state saving.</description>
+        <param-name>javax.faces.PARTIAL_STATE_SAVING_METHOD</param-name>
+        <param-value>false</param-value>
+    </context-param>
+    <context-param>
+        <description>If true every time a page is rendered, the corresponding JSP is dispatched also.
+        This is very usefull if Scriptlets are used inside the JSP.</description>
+        <param-name>javax.faces.PARTIAL_STATE_SAVING_DISPATCH_EVERY_TIME</param-name>
+        <param-value>true</param-value>
+    </context-param>
+    <filter>
+        <filter-name>MyFacesExtensionsFilter</filter-name>
+        <filter-class>org.apache.myfaces.webapp.filter.ExtensionsFilter</filter-class>
+        <init-param>
+            <param-name>uploadMaxFileSize</param-name>
+            <param-value>20m</param-value>
+        </init-param>
+        <init-param>
+            <param-name>uploadThresholdSize</param-name>
+            <param-value>100k</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>MyFacesExtensionsFilter</filter-name>
+        <servlet-name>Faces Servlet</servlet-name>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>MyFacesExtensionsFilter</filter-name>
+        <url-pattern>/faces/myFacesExtensionResource/*</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>MyFacesExtensionsFilter</filter-name>
+        <url-pattern>*.jsf</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>MyFacesExtensionsFilter</filter-name>
+        <url-pattern>/faces/*</url-pattern>
+    </filter-mapping>
+    <servlet>
+        <servlet-name>Faces Servlet</servlet-name>
+        <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Faces Servlet</servlet-name>
+        <url-pattern>/faces/*</url-pattern>
+    </servlet-mapping>
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+    <welcome-file-list>
+        <welcome-file>faces/inputSuggestAJAX.jsp</welcome-file>
+    </welcome-file-list>
+</web-app>

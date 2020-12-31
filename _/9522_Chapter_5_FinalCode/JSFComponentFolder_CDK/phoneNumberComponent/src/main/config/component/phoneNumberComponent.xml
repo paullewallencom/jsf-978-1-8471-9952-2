@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE components PUBLIC "-//AJAX4JSF//CDK Generator config/EN"  "http://labs.jboss.com/jbossrichfaces/component-config.dtd">
+
+<components>
+	<component>
+		<name>jsf.custom.component.PhoneNumberComponent</name>
+		<family>jsf.custom.component.PhoneNumberComponent</family>
+		<classname>jsf.custom.component.component.html.HtmlPhoneNumberComponent</classname>
+		<superclass>jsf.custom.component.component.UIPhoneNumberComponent</superclass>
+		<description>
+			<![CDATA[
+    ]]>
+		</description>
+		<renderer generate="true" override="true">
+			<name>jsf.custom.component.PhoneNumberComponentRenderer</name>
+			<template>jsf/custom/component/htmlPhoneNumberComponent.jspx</template>
+		</renderer>
+		<tag>
+			<name>phoneNumberComponent</name>
+			<classname>jsf.custom.component.taglib.PhoneNumberComponentTag</classname>
+			<superclass>
+				org.ajax4jsf.webapp.taglib.HtmlComponentTagBase
+			</superclass>
+		</tag>
+		<!--
+		<taghandler>
+			<classname>org.ajax4jsf.tag.TestHandler</classname>
+		</taghandler>
+		-->
+		&ui_component_attributes;
+		<!--
+		<property>
+			<name>param</name>
+			<classname>java.lang.String</classname>
+			<description>
+			</description>
+			<defaultvalue>"default"</defaultvalue>
+		</property>
+        -->
+		<property>
+		 <name>value</name>
+		 <classname>java.lang.Object</classname>
+		 <description>Component value</description>
+		</property>
+		<property>
+		 <name>title</name>
+		 <classname>java.lang.String</classname>
+		 <description>Component title</description>
+		 <defaultvalue>&quot;Phone number&quot;</defaultvalue>
+		</property>
+		<property>
+		 <name>name</name>
+		 <classname>java.lang.String</classname>
+		 <description>Component name</description>
+		</property>
+
+	</component>
+</components>

@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html">
+    <h:head>
+        <title>Passing parameters from JS to JSF(client to server)</title>
+
+        <script type="text/javascript" language="javascript">
+            function setTextValue(){               
+                document.getElementById('formId:textId').value = 'JavaScript_1';
+                document.getElementById('formId').submit();
+            }
+
+            function setWindowLocation(){
+                var param = 'JavaScript_2';
+                window.location = 'http://localhost:8080/Pass_param_from_JS_to_JSF/newpage.xhtml?p=' + escape(param);
+            }
+        </script>
+    </h:head>
+
+    <h:body>
+        <h:form id="formId">
+            <h:inputText id="textId" value="#{bean.text}" />
+            <h:commandButton id="btn_1_Id" value="Submit (use setTextValue)" action="#{bean.action}" onclick="setTextValue();" />            
+        </h:form>
+
+        <h:outputText value="Parameter on GET reuqest" />
+        <h:commandButton id="btn_2_Id" value="Submit (use window.location)" onclick="setWindowLocation();" />
+    </h:body>
+</html>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<f:root 
+	xmlns:f="http://ajax4jsf.org/cdk/template" 
+	xmlns:c=" http://java.sun.com/jsf/core" 
+	xmlns:ui=" http://ajax4jsf.org/cdk/ui"
+	xmlns:h=" http://ajax4jsf.org/cdk/h"
+	xmlns:u=" http://ajax4jsf.org/cdk/u"
+	xmlns:x=" http://ajax4jsf.org/cdk/x"
+	xmlns:jsp=" http://ajax4jsf.org/cdk/jsp"
+	class="jsf.custom.component.renderkit.html.PhoneNumberComponentRenderer"
+	baseclass="jsf.custom.component.renderkit.PhoneNumberComponentRendererBase"
+	component="jsf.custom.component.component.UIPhoneNumberComponent">
+	<f:clientid var="clientId"/>
+	
+	<f:resource name="/jsf/custom/component/renderkit/html/images/phone.gif" var="icon" />
+
+	<div id="#{clientId}" x:passThruWithExclusions="value,name,type,id">
+	
+	<input  id="#{clientId}" 
+		name="#{clientId}"
+		type="text" 
+		value="#{this:getValueAsString(context, component)}"/>
+	
+	<jsp:scriptlet>
+			<![CDATA[if(component.getFacet("icon")!=null && component.getFacet("icon").isRendered()) {]]>
+		</jsp:scriptlet>        
+				<u:insertFacet name="icon" />
+		<jsp:scriptlet>
+			<![CDATA[
+			}else{
+			]]>
+		</jsp:scriptlet>
+				<img src="#{icon}"/>
+		<jsp:scriptlet>
+			<![CDATA[
+			}
+			]]>
+		</jsp:scriptlet>
+
+	</div>
+</f:root>
+

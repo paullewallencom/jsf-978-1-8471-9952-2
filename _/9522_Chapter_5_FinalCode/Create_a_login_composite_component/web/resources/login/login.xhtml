@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:composite="http://java.sun.com/jsf/composite">
+
+    <h:head>
+        <title>Creating a login composite component - not rendered on output</title>
+    </h:head>
+
+    <h:body>
+        <composite:interface>
+            <composite:actionSource name="loginID" />
+            <composite:valueHolder name="username" />
+            <composite:valueHolder name="password" />
+        </composite:interface>
+
+        <composite:implementation>
+            <table>
+                <tr>
+                    <td>Username:<h:inputText id="usernameID" /> </td>
+                </tr>
+                <tr>
+                    <td>Password:<h:inputSecret id="passwordID" /></td>
+                </tr>
+                <tr>
+                    <td><h:commandButton value="Login" id="loginID" /></td>
+                </tr>
+            </table>
+        </composite:implementation>
+    </h:body>
+
+</html>

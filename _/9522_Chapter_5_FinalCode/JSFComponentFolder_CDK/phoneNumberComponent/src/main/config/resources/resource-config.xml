@@ -1,0 +1,6 @@
+<resource-config>
+  <resource>
+    <name>jsf/custom/component/renderkit/html/images/phone.gif</name>
+    <path>jsf/custom/component/renderkit/html/images/phone.gif</path>
+  </resource>
+</resource-config>

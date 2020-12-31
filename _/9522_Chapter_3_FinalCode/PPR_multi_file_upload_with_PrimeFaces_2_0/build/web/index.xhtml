@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.prime.com.tr/ui">
+    <h:head>
+        <p:resources />
+        <title>PPR multi file upload with PrimeFaces</title>
+    </h:head>
+    <h:body>
+        <h:outputText value="Select the files to upload:"/>
+        <h:form enctype="multipart/form-data" prependId="false">
+            <p:growl id="messages" showSummary="true" showDetail="true" />
+            <p:fileUpload fileUploadListener="#{uploadBean.handleFileUpload}" update="messages"  sizeLimit="1073741824"
+                          multiple="true" label="choose" allowTypes="*.jpg;*.png;*.gif;" description="Images"/>
+        </h:form>
+    </h:body>
+</html>
+

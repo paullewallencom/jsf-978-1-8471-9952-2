@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition>
+        <h:column>
+            <f:facet name="header">
+                <h:panelGroup>
+                    <f:verbatim>Book-</f:verbatim>
+                    <h:outputText value="${attr}" />
+
+                    <f:verbatim>[</f:verbatim>
+
+                    <!-- Ascending link -->
+                    <h:commandLink action="#{compbean.sortBooks}">
+                        <h:outputText value="ascending" />
+                        <f:param name="by" value="${attr}"/>
+                        <f:param name="order" value="ascending"/>
+                    </h:commandLink>
+
+                    <h:outputText value="," />
+
+                    <!-- Descending link -->
+                    <h:commandLink action="#{compbean.sortBooks}">
+                        <h:outputText value="descending" />
+                        <f:param name="by" value="${attr}"/>
+                        <f:param name="order" value="descending"/>
+                    </h:commandLink>
+
+                    <f:verbatim>]</f:verbatim>
+
+                </h:panelGroup>
+            </f:facet>
+
+            <h:outputText value="${book[attr]}" />
+
+            <ui:insert />
+        </h:column>
+
+    </ui:composition>
+</html>

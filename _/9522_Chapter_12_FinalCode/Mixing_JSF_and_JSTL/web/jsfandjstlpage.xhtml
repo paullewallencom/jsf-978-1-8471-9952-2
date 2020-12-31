@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
+
+    <h:head>
+        <title>Mixing JSF and JSTL</title>
+    </h:head>
+    <h:body>
+        <table>
+            <h:outputText value="Available cars:" />
+            <c:forEach items="${bean.cars}" var="car">
+                <tr>
+                    <td>
+                        <c:set var="jstlcar" value="${car}"/>
+                        <h:outputText value="#{jstlcar}" />
+                    </td>
+                </tr>
+            </c:forEach>
+        </table>
+
+    </h:body>
+</html>

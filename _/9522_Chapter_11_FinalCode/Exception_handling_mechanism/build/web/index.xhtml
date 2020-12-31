@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>	Exception handling mechanism</title>
+    </h:head>
+    <h:body>
+        <f:verbatim>The current number is:</f:verbatim>
+        <h:outputText value="#{bean.number}" /><br />
+        <f:verbatim>The new number is:</f:verbatim>
+        <h:form>
+            <h:inputText value="#{bean.number}" />          
+            <h:commandButton id="submit" action="index?faces-redirect=true" value="Submit"/>
+        </h:form>
+    </h:body>
+</html>
+

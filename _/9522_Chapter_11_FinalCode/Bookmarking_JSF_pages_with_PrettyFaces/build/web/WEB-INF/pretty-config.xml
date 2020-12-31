@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pretty-config
+	xmlns="http://ocpsoft.com/prettyfaces-xsd"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://ocpsoft.com/prettyfaces-xsd
+	http://ocpsoft.com/xml/ns/prettyfaces/pretty-1.0.xsd">
+
+        <url-mapping id="1">
+		<pattern> /say_hello_1 </pattern>
+		<view-id>faces/hello1.xhtml</view-id>
+	</url-mapping>
+
+        <url-mapping id="2">
+		<pattern> /say_hello_2 </pattern>
+                <query-param name="hello" decode="false">#{bean.hello}</query-param>
+		<view-id>faces/hello2.xhtml</view-id>
+	</url-mapping>
+
+        <url-mapping id="3">
+		<pattern> /say_hello_3 </pattern>
+                <query-param name="hello" decode="false">#{bean.hello}</query-param>
+                <action>#{bean.upperHello}</action>
+		<view-id>faces/hello2.xhtml</view-id>
+	</url-mapping>
+
+        <url-mapping id="4">
+		<pattern> /say_hello_4 </pattern>
+		<view-id>#{bean.beanURL}</view-id>
+	</url-mapping>
+
+</pretty-config>

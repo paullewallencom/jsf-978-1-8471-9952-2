@@ -1,0 +1,23 @@
+<?xml version='1.0' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html">
+    <h:head>
+        <title>Populate a JS load function with JSF values</title>
+        <script type="text/javascript" language="javascript">
+            function calledOnLoad(){
+                var p_1 = '<h:outputText value="#{bean.param_1}"/>';
+                var p_2 = '<h:outputText value="#{bean.param_2}"/>';
+
+                var ot = document.getElementById("formId:textId");                
+                ot.textContent="Parameters from bean are:" + p_1 + " and " + p_2;
+            }
+        </script>
+    </h:head>
+
+    <h:body onload="calledOnLoad();">
+        <h:form id="formId">
+            <h:outputText id="textId" value=""/>
+        </h:form>
+    </h:body>
+</html>

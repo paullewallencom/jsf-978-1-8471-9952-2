@@ -1,0 +1,52 @@
+<?xml version='1.0' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Communication between parent-popup windows</title>
+
+        <script type="text/javascript" language="javascript">
+            function carsPopup(){
+                var popup = null;
+                var companies = document.forms["formId"].elements["formId:companyId"];
+
+                for (var company in companies) {
+                    if (companies[company].checked){
+                        popup = window.open("popupwindow.xhtml?company=" + companies[company].value, "popup",
+                        "height=350,width=250,toolbar=no,menubar=no," + "scrollbars=yes");
+
+                        popup.openerFormId = "formId";
+                        popup.focus();
+                    }
+                }
+          
+          
+            }
+        </script>
+
+    </h:head>
+
+    <h:body>
+        <h:form id="formId">
+            <h:panelGrid columns="3" border="1">
+                <f:facet name="header">
+                    <h:outputText value="Car Chooser"/>
+                </f:facet>
+
+                <h:outputText value="Companies:"/>
+                <h:selectOneRadio id="companyId" value="#{bean.carCompany}">
+                    <f:selectItem itemLabel="Renault"  itemValue="Renault"/>
+                    <f:selectItem itemLabel="Fiat"  itemValue="Fiat"/>
+                    <f:selectItem itemLabel="Dacia"  itemValue="Dacia"/>
+                </h:selectOneRadio>
+
+                <h:outputText/>
+                <h:outputText value="Select car:"/>
+                <h:inputText id="carId" value="#{bean.carName}"/>
+                <h:commandButton id="btnId" value="Browse" onclick="carsPopup(); return false;"/>
+
+            </h:panelGrid>
+        </h:form>
+    </h:body>
+</html>

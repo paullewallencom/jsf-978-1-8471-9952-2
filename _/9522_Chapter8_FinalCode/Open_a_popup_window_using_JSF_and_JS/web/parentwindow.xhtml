@@ -1,0 +1,37 @@
+<?xml version='1.0' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html">
+    <h:head>
+        <title>Open a popup window using JSF and JS</title>
+
+        <script type="text/javascript" language="javascript">
+            function openNewWindow(){
+                //alert('#{facesContext.externalContext.requestContextPath}/newwindow.xhtml');
+                window.open('#{facesContext.externalContext.requestContextPath}/newwindow.xhtml', 'MyWindow', 'dependent=yes, menubar=no, toolbar=no');
+                return false;
+            }
+        </script>
+
+    </h:head>
+
+    <h:body>
+        <h:form id="formID">
+            <!-- use the target attribute of h:commandLink -->
+            <h:commandLink target="NewWindow" action="#{bean.actionNewWindow}" actionListener="#{bean.listenerNewWindow}" value="Open Popup Window 1" />
+
+            <br />
+            <!-- use h:outputLink and JavaScript -->
+            <h:outputLink onclick="window.open('newwindow.xhtml', 'MyWindow', 'dependent=yes, menubar=no, toolbar=no'); return false;" value="#">
+                <h:outputText value="Open Popup Window 2" />
+            </h:outputLink> 
+
+            <br />
+            <!-- mapping the new window path in JavaScript function -->
+            <h:outputLink onclick="openNewWindow();">
+                <h:outputText value="Open Popup Window 3" />
+            </h:outputLink>
+
+        </h:form>
+    </h:body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html" 
+      xmlns:composite="http://java.sun.com/jsf/composite">
+
+    <h:head>
+        <title>Creating a rusable AJAX spinner composite component</title>
+    </h:head>
+
+    <h:body>
+        <composite:interface>
+            <composite:attribute name="value" required="true" />
+            <composite:attribute name="step" required="false" />
+        </composite:interface>
+        <composite:implementation>
+            <h:outputScript name="ajax.js" library="javax.faces" target="head"/>
+            <h:outputScript name="spinner/spinnerJS.js" target="head" />
+            <script type="text/javascript">
+                initSpinner("#{cc.clientId}","#{cc.attrs.step}");
+            </script>
+            <h:inputText id="nrID" value="#{cc.attrs.value}"/>
+            <h:commandButton id="leftID" value="Plus step" onclick="return goDirection('#{cc.clientId}',1);"/>
+            <h:commandButton id="rightID" value="Minus step" onclick="return goDirection('#{cc.clientId}',-1);"/>
+        </composite:implementation>
+
+    </h:body>
+
+</html>

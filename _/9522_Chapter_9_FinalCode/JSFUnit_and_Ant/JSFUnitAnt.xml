@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="JSFUnitfy" default="default" basedir=".">
+  <description>Tests the jsfunitwar ant task.</description>
+
+  <property name="src.jsf.app" location="${basedir}...PATH TO JSF APP WAR FILE OR EXPLODED WAR..."/>
+  <property name="dest.jsfunitfied.app" location="${basedir}/...PATH TO JSF-UNITFIED WAR OR EXPLODED WAR..."/>
+  <property name="lib.dir" location="${basedir}/lib"/>
+  <property name="classes.test" location="${basedir}/classes"/>
+   
+  <path id="jsfunit.classpath">
+   <fileset dir="${lib.dir}">
+    <include name="**/*.jar"></include>
+   </fileset>
+  </path>
+  
+  <taskdef name="jsfunitwar" classname="org.jboss.jsfunit.ant.JSFUnitWarTask" classpathref="jsfunit.classpath"/>
+
+  <target name="default" depends="make.jsfunitfied">
+  </target>
+  
+  <target name="clean">
+      <delete dir="${dest.jsfunitfied.app}"/>
+      <mkdir dir="${dest.jsfunitfied.app}"/>
+  </target>
+  
+  <target name="make.jsfunitfied" depends="clean">
+    <jsfunitwar srcfile="${src.jsf.app}" destfile="${dest.jsfunitfied.app}" autoaddjars="true">
+      <classes dir="${classes.test}" includes="**/tests/**/*.class"></classes>
+      <TestRunner/>
+    </jsfunitwar>	
+  </target>
+  
+</project>
+
+
+
+
+
+
+  
+
+
+

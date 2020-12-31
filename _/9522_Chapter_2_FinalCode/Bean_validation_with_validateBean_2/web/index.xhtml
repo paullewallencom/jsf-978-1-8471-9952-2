@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Using the f:validateBean groups</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <h:panelGrid columns="2">
+                <f:validateBean validationGroups="beans.usersIdsGroup">
+
+                    <!-- these will be validated, since we specify the usersIdsGroup group -->
+                    <h:outputText value="Name:"/>
+                    <h:inputText value="#{userBean.name}"/>
+                    <h:outputText value="Age:"/>
+                    <h:inputText value="#{userBean.age}"/>
+                    <h:outputText value="E-mail:"/>
+                    <h:inputText value="#{userBean.email}"/>
+
+                    <!-- these will not be validated, since they belong to an unspecified group, usersCredentialsGroup group -->
+                    <h:outputText value="ID:"/>
+                    <h:inputText value="#{userBean.nickname}"/>
+                    <h:outputText value="Password"/>
+                    <h:inputSecret value="#{userBean.password}"/>
+
+                </f:validateBean>
+            </h:panelGrid>
+            <h:commandButton value="Submit" action="index?faces-redirect=true"/>
+        </h:form>
+    </h:body>
+</html>
+

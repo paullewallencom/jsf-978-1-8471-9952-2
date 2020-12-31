@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"     
+      xmlns:sc="http://java.sun.com/mojarra/scales">
+
+    <ui:composition>
+
+        <!-- For an image use: -->
+        <h:outputText value="Download RafaNadal.jpg image:" /><br />
+        <sc:download method="download" mimeType="image/jpg"
+                     fileName="RafaNadal.jpg" data="#{downloadBean.image}">
+            <h:graphicImage alt="Download" url="/download.jpg" />
+        </sc:download>
+
+        <!-- For a pdf document use: -->
+        <br />
+        <h:outputText value="Download RafaNadal.pdf document:" /><br />
+        <sc:download method="download" mimeType="application/pdf" fileName="RafaNadal.pdf" data="#{downloadBean.pdf}">
+            <h:graphicImage alt="Download" url="/download.jpg" />
+        </sc:download>
+
+    </ui:composition>
+</html>

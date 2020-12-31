@@ -1,0 +1,124 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <h:head>
+        <title>Composition components in JSF 2.0</title>
+        <style type="text/css">
+            .header { text-align: left;
+                      letter-spacing:5px;
+                      color:#000099
+            }
+            .odd { background-color: yellow }
+            .even { background-color: orange }
+        </style>
+    </h:head>
+
+    <f:view>
+        <h:form>
+            <h:dataTable id="booksId" value="#{booksStore.books}" var="bk" rowClasses="odd, even" headerClass="header">
+
+                <!--  book title -->
+                <h:column>
+                    <f:facet name="header">
+                        <h:panelGroup>
+                            <h:outputText value="Book Title" />
+
+                            <f:verbatim>[</f:verbatim>
+
+                            <!-- Ascending link -->
+                            <h:commandLink action="#{booksStore.sortBooks}">
+                                <h:outputText id="booktitleascid" value="ascending" />
+                                <f:param name="by" value="title"/>
+                                <f:param name="order" value="ascending"/>
+                            </h:commandLink>
+
+                            <h:outputText value="," />
+
+                            <!-- Descending link -->
+                            <h:commandLink action="#{booksStore.sortBooks}">
+                                <h:outputText id="booktitledescid" value="descending" />
+                                <f:param name="by" value="title"/>
+                                <f:param name="order" value="descending"/>
+                            </h:commandLink>
+
+                            <f:verbatim>]</f:verbatim>
+
+                        </h:panelGroup>
+                    </f:facet>
+
+                    <h:outputText value="#{bk.title}" />
+
+                </h:column>
+
+                <!-- book author -->
+                <h:column>
+                    <f:facet name="header">
+                        <h:panelGroup>
+                            <h:outputText value="Book Author" />
+
+                            <f:verbatim>[</f:verbatim>
+
+                            <!-- Ascending link -->
+                            <h:commandLink action="#{booksStore.sortBooks}">
+                                <h:outputText id="bookauthorascid" value="ascending" />
+                                <f:param name="by" value="author"/>
+                                <f:param name="order" value="ascending"/>
+                            </h:commandLink>
+
+                            <h:outputText value="," />
+
+                            <!-- Descending link -->
+                            <h:commandLink action="#{booksStore.sortBooks}">
+                                <h:outputText id="bookauthordescid" value="descending" />
+                                <f:param name="by" value="author"/>
+                                <f:param name="order" value="descending"/>
+                            </h:commandLink>
+
+                            <f:verbatim>]</f:verbatim>
+
+                        </h:panelGroup>
+                    </f:facet>
+
+                    <h:outputText value="#{bk.author}" />
+
+                </h:column>
+
+                <!-- book price -->
+                <h:column>
+                    <f:facet name="header">
+                        <h:panelGroup>
+                            <h:outputText value="Book Price" />
+
+                            <f:verbatim>[</f:verbatim>
+
+                            <!-- Ascending link -->
+                            <h:commandLink action="#{booksStore.sortBooks}">
+                                <h:outputText id="bookpriceascid" value="ascending" />
+                                <f:param name="by" value="price"/>
+                                <f:param name="order" value="ascending"/>
+                            </h:commandLink>
+
+                            <h:outputText value="," />
+
+                            <!-- Descending link -->
+                            <h:commandLink action="#{booksStore.sortBooks}">
+                                <h:outputText id="bookpricedescid" value="descending" />
+                                <f:param name="by" value="price"/>
+                                <f:param name="order" value="descending"/>
+                            </h:commandLink>
+
+                            <f:verbatim>]</f:verbatim>
+
+                        </h:panelGroup>
+                    </f:facet>
+
+                    <h:outputText value="#{bk.price}" />
+
+                </h:column>
+            </h:dataTable>
+
+        </h:form>
+    </f:view>
+</html>

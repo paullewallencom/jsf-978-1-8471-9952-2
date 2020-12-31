@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+
+<taglib xmlns="http://java.sun.com/xml/ns/javaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-jsptaglibrary_2_1.xsd"
+    version="2.1">
+ <tlib-version>1.0</tlib-version>
+
+ <short-name>phoneNumberComponent</short-name>
+ <uri>http://packt.cdk.org/phoneNumberComponent</uri>
+
+
+
+					 <tag>
+	  	  <description></description>
+	  	  	  		  <name>phoneNumberComponent</name>
+	  	  <tag-class>jsf.custom.component.taglib.PhoneNumberComponentTag</tag-class>
+	  <body-content>JSP</body-content>
+	  
+	    		  <attribute>
+	   <description>The attribute takes a value-binding expression for a component property of
+a backing bean</description>
+	   <name>binding</name>
+	   	   	   					   	<deferred-value>
+					<type>javax.faces.component.UIComponent</type>
+				</deferred-value>
+				   	  </attribute>
+		  		  <attribute>
+	   <description>converter</description>
+	   <name>converter</name>
+	   	   	   					   	<deferred-value>
+					<type>javax.faces.convert.Converter</type>
+				</deferred-value>
+				   	  </attribute>
+		  		  <attribute>
+	   <description>converterMessage</description>
+	   <name>converterMessage</name>
+	   	   	   					   	<deferred-value>
+					<type>java.lang.String</type>
+				</deferred-value>
+				   	  </attribute>
+		  	  		  <attribute>
+	   <description>Every component may have a unique id that is automatically created if omitted</description>
+	   <name>id</name>
+	   	   	   		<rtexprvalue>false</rtexprvalue>
+	   		<type>java.lang.String</type>
+	   	  </attribute>
+		  		  <attribute>
+	   <description>immediate</description>
+	   <name>immediate</name>
+	   	   	   					   	<deferred-value>
+					<type>boolean</type>
+				</deferred-value>
+				   	  </attribute>
+		  	  		  <attribute>
+	   <description>localValueSet</description>
+	   <name>localValueSet</name>
+	   	   	   					   	<deferred-value>
+					<type>boolean</type>
+				</deferred-value>
+				   	  </attribute>
+		  		  <attribute>
+	   <description>Component name</description>
+	   <name>name</name>
+	   	   	   					   	<deferred-value>
+					<type>java.lang.String</type>
+				</deferred-value>
+				   	  </attribute>
+		  		  <attribute>
+	   <description>If "false", this component is not rendered</description>
+	   <name>rendered</name>
+	   	   	   					   	<deferred-value>
+					<type>boolean</type>
+				</deferred-value>
+				   	  </attribute>
+		  		  <attribute>
+	   <description>required</description>
+	   <name>required</name>
+	   	   	   					   	<deferred-value>
+					<type>boolean</type>
+				</deferred-value>
+				   	  </attribute>
+		  		  <attribute>
+	   <description>requiredMessage</description>
+	   <name>requiredMessage</name>
+	   	   	   					   	<deferred-value>
+					<type>java.lang.String</type>
+				</deferred-value>
+				   	  </attribute>
+		  		  <attribute>
+	   <description>Component title</description>
+	   <name>title</name>
+	   	   	   					   	<deferred-value>
+					<type>java.lang.String</type>
+				</deferred-value>
+				   	  </attribute>
+		  		  <attribute>
+	   <description>valid</description>
+	   <name>valid</name>
+	   	   	   					   	<deferred-value>
+					<type>boolean</type>
+				</deferred-value>
+				   	  </attribute>
+		  		  <attribute>
+	   <description>validator</description>
+	   <name>validator</name>
+	   	   	   						<deferred-method>
+					<method-signature>void validator(${prop.methodargs})</method-signature>
+				</deferred-method>
+				   	  </attribute>
+		  		  <attribute>
+	   <description>validatorMessage</description>
+	   <name>validatorMessage</name>
+	   	   	   					   	<deferred-value>
+					<type>java.lang.String</type>
+				</deferred-value>
+				   	  </attribute>
+		  	  		  <attribute>
+	   <description>Component value</description>
+	   <name>value</name>
+	   	   	   					   	<deferred-value>
+					<type>java.lang.Object</type>
+				</deferred-value>
+				   	  </attribute>
+		  		  <attribute>
+	   <description>valueChangeListener</description>
+	   <name>valueChangeListener</name>
+	   	   	   						<deferred-method>
+					<method-signature>void valueChangeListener(${prop.methodargs})</method-signature>
+				</deferred-method>
+				   	  </attribute>
+		  	  	  
+	</tag>
+	
+				
+  
+</taglib>

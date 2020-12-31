@@ -1,0 +1,18 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"     
+      xmlns:h="http://java.sun.com/jsf/html">
+
+    <head>
+        <title>Facelets aliasing components</title>
+    </head>
+    <body>
+
+        <h:message showSummary="true" showDetail="false" for="name" />
+        <form jsfc="h:form" id="helloForm">
+            Your name:
+            <input jsfc="h:inputText" required="true" id="name" value="#{person.name}" />
+            <input  type="submit" jsfc="h:commandButton" id="submit" action="greeting" value="Say Hello" />
+        </form>
+
+    </body>
+</html>

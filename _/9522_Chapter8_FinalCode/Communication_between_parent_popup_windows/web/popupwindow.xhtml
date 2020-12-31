@@ -1,0 +1,28 @@
+<?xml version='1.0' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html">
+    <h:head>
+        <title>Communication between parent-popup windows</title>
+         <script type="text/javascript" language="javascript">
+             function fillUpCarName(car) {
+               var formId = window.openerFormId;         
+               opener.document.forms[formId][formId + ":carId"].value = car;
+               window.close();
+            }
+         </script>
+    </h:head>
+
+    <h:body>
+        <h:form>
+            <h:outputText value="Available cars for #{param.company} company:" />
+            <h:dataTable value="#{bean.allCars[param.company]}" var="car">
+                <h:column>
+                    <h:outputLink value="#" onclick="fillUpCarName('#{car}');">
+                        <h:outputText value="#{car}" />
+                    </h:outputLink>
+                </h:column>
+            </h:dataTable>
+        </h:form>
+    </h:body>
+</html>

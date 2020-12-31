@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Injecting CSS in JSF</title>
+        <style type="text/css">
+            .message { text-align: left;
+                       letter-spacing:5px;
+                       color:#000099
+            }
+            .message-overline { text-decoration:overline;
+            }
+            .message-font { font-family:georgia,garamond,serif;
+                            font-size:20px;
+                            font-style:italic;
+            }           
+        </style>
+    </h:head>
+    <h:body>       
+        <h:outputText styleClass="message" value="This text is CSS formated by 'message' class!"/><br /><br />
+        <h:outputText styleClass="message message-overline" value="This text is CSS formated by 'message' and 'message-overline' classes!"/><br /><br />
+        <h:outputText styleClass="message message-overline message-font" value="This text is CSS formated by 'message', 'message-overline' and 'message-font' classes!"/><br /><br />
+        <h:outputText style="text-align: left;letter-spacing:5px; color:#000099" value="This text is CSS formated using the 'style' attribute instead of 'message' class!"/><br /><br />
+        <h:outputText style="text-align: left;letter-spacing:5px; color:#000099;text-decoration:overline;" value="This text is CSS formated using the 'style' attribute instead of 'message' and 'message-overline' classes!"/><br /><br />
+        <h:outputText style="text-align: left;letter-spacing:5px; color:#000099;text-decoration:overline;font-family:georgia,garamond,serif;font-size:20px;font-style:italic;" value="This text is CSS formated using the 'style' attribute instead of 'message', 'message-overline' and 'message-font' classes!"/><br /><br />
+
+    </h:body>
+</html>
